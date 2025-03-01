@@ -90,12 +90,13 @@ public class Student_Management {
     public static void createExcel() {
         try {
             FileWriter writer = new FileWriter("ExcelReport.csv");
+            writer.write("Student Details \n"); 
             writer.write("Roll No,Name,Branch,Grade,Attendance\n"); // Header row
     
             for (int i = 0; i < students.size(); i++) {
                 Student_Data student = students.get(i);
                 writer.write(student.rollno + "," + student.name + "," + student.branch + "," 
-                            + student.grade + "," + (student.ispresent ? "Present" : "Absent") + "\n");
+                            + student.grade +" CGPA"+ "," + (student.ispresent ? "Present" : "Absent") + "\n");
             }
     
             writer.close();
